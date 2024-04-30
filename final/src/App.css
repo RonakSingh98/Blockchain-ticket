@@ -1,0 +1,175 @@
+nav {
+  background-color: #333;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+/* content  */
+
+/* Styles for EventList component */
+.event-list {
+  margin-bottom: 20px;
+}
+
+.event-list h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.event-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.event-list li {
+  margin-bottom: 10px;
+}
+
+.event-list li strong {
+  font-weight: bold;
+}
+
+.event-list li span {
+  font-style: italic;
+}
+
+.photos {
+  width: 220px;
+  height: 180px;
+  border-radius: 5px;
+}
+.photos:hover {
+  transform: translateY(-10px);
+}
+
+.pop {
+  display: flex;
+  justify-content: space-around;
+}
+
+.latest {
+  display: flex;
+  justify-content: space-around;
+}
+.Upcoming {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+/* Style for the container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style for the headings */
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style for the popular events section */
+.popular-events {
+  margin-bottom: 40px;
+}
+
+/* Style for the event cards */
+.event-card {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Style for the event images */
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Style for the event titles */
+.event-title {
+  font-size: 20px;
+  padding: 10px;
+}
+
+/* Animation for fading in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Apply fade in animation to event cards */
+.event-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Background styling */
+body {
+
+  background: rgb(249,249,249);
+background: linear-gradient(90deg, rgba(249,249,249,1) 0%, rgba(235,219,176,1) 79%, rgba(244,212,211,1) 100%);
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.small-button {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #4CAF50; /* Green border */
+  color: #4CAF50; /* Green text */
+  background-color: white; /* Transparent background */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.small-button:hover {
+  background-color: #4CAF50; /* Green background */
+  color: #fff; /* White text */
+}
+
+.small-button:focus {
+  outline: none; /* Remove focus outline */
+}
+

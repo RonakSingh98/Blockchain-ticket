@@ -1,0 +1,52 @@
+/* AdminDashboard.css */
+
+.admin-dashboard {
+    padding: 20px;
+  }
+  
+  .admin-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .admin-section {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  .admin-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+  }
+  
+  .admin-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .admin-section ul li span {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  /* Styling for Users component */
+  .users-section {
+    background-color: #f9f9f9;
+  }
+  
+  /* Styling for Tickets component */
+  .tickets-section {
+    background-color: #f0f0f0;
+  }
+  
+  /* Styling for Orders component */
+  .orders-section {
+    background-color: #e0e0e0;
+  }
+  
