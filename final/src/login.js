@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line 
+import React, { useState } from 'react';
 import './login.css';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export const SignUp = ({ user,setUser,setShowLogin }) => {
   const [email, setEmail] = useState('');
