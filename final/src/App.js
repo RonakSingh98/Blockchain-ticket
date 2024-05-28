@@ -3,67 +3,45 @@ import './App.css';
 import Apps from './Content';
 import Checkout from './checkout';
 import Contact from './Contact';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Import BrowserRouter and other necessary components
 import Login from './login';
 import MyOrders from './Myorders';
 import TicketUploadForm from './Eventnew';
 import AdminDashboard from './admin';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
+
 function App() {
-  const [user,setUser] = useState(null);
-  useEffect(()=>{
-    console.log(user);
-  },[user]);
+  const [user, setUser] = useState(null);
+  const [initialPath, setInitialPath] = useState('/login');
+
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('jwt');
+    if (loggedInUser) {
+      const foundUser = loggedInUser;
+      setUser(foundUser);
+      setInitialPath('/');
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwt');
+    setUser(null);
+    setInitialPath('/login');
+  };
 
   const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Apps user={user}/>,
-    },
-    {
-      path: "/checkout",
-      element: <Checkout user={user}/>,
-    },
-    {
-      path: "/contact",
-      element: <Contact user={user}/>,
-    },
-    {
-      path: "/login",
-      element: <Login user={user} setUser={setUser}/>,
-    },
-    {
-      path: "/orders",
-      element: <MyOrders user={user}/>,
-    },
-    {
-      path: "/newevent",
-      element: <TicketUploadForm user={user}/>,
-    },
-    {
-      path: "/admin",
-      element: <AdminDashboard user={user}/>,
-    },
+    { path: '/', element: user ? <Apps user={user} onLogout={handleLogout} /> : <Navigate to="/login" /> },
+    { path: '/checkout', element: user ? <Checkout user={user} /> : <Navigate to="/login" /> },
+    { path: '/contact', element: user ? <Contact user={user} /> : <Navigate to="/login" /> },
+    { path: '/login', element: <Login user={user} setUser={setUser} /> },
+    { path: '/orders', element: user ? <MyOrders user={user} /> : <Navigate to="/login" /> },
+    { path: '/newevent', element: user ? <TicketUploadForm user={user} /> : <Navigate to="/login" /> },
+    { path: '/admin', element: user ? <AdminDashboard user={user} /> : <Navigate to="/login" /> },
   ]);
 
   return (
     <div className="App">
-        {/* <Router>
-        <Routes>
-          <Route path="/" element={<Apps />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/contact" element={<Contact/>}/>
-          <Route path="/login" element={<Login user={user} setUser={setUser}/>}/>
-          <Route path="/orders" element={<MyOrders/>}/>
-          <Route path="/newevent" element={<TicketUploadForm/>}/>
-          <Route path="/admin" element={<AdminDashboard/>}/>
-        </Routes>
-    </Router> */}
-      <RouterProvider router={router} />
-      </div>
+      <RouterProvider router={router} initialEntries={[initialPath]} />
+    </div>
   );
 }
 

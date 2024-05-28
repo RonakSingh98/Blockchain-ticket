@@ -20,6 +20,7 @@ export const SignUp = ({ user,setUser,setShowLogin }) => {
       });
       const data = await response.json();
       if(response.ok){
+        localStorage.setItem("jwt1",true);
         localStorage.setItem("jwt",response.headers.get("Authorization"));
         setUser(data.data);
       }

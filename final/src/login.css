@@ -1,20 +1,20 @@
-.App1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .form-container {
   max-width: 400px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
+  
+  /* Center the form */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h2 {
   margin-bottom: 20px;
+  text-align: center; /* Center the heading */
 }
 
 .form-group {
@@ -49,4 +49,17 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+p {
+  text-align: center; /* Center the paragraph */
+}
+
+span {
+  color: blue;
+  cursor: pointer;
+}
+
+span:hover {
+  text-decoration: underline;
 }
