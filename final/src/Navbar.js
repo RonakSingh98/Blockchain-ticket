@@ -5,7 +5,7 @@ const Navbar = ({ user, onLogout }) => {
   return (
     <nav>
       <ul>
-        <li><Link to="#s1">Home</Link></li>
+        <li><Link to="/">Home</Link></li>
         {!user && <li><Link to="/login">Login</Link></li>}
         {user && <li><Link to="/orders">My Orders</Link></li>}
         <li><Link to="/contact">Contact Us</Link></li>
