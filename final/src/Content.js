@@ -6,7 +6,7 @@ import p7 from './images/7.jpg';
 import p8 from './images/8.jpg';
 import p9 from './images/9.jpg';
 import p10 from './images/10.jpg';
-
+import Navbar from './Navbar';
 window.Buffer = Buffer;
 
 const Content = ({ user, onLogout }) => {
@@ -36,17 +36,7 @@ const Content = ({ user, onLogout }) => {
 
   return (
     <div>
-      <nav>
-        <ul>
-          <li><Link to="#s1">Home</Link></li>
-          {!user && <li><Link to="/login">Login</Link></li>}
-          {user && <li><Link to="/orders">My Orders</Link></li>}
-          <li><Link to="/contact">Contact Us</Link></li>
-          {user && user.role === 'admin' && <li><Link to="/admin">Admin Dashboard</Link></li>}
-          {user && user.role === 'vendor' && <li ><Link to="/newevent">Sell Tickets</Link></li>}
-          {user && <li><button id='abc' onClick={onLogout} >Logout</button></li>}
-        </ul>
-      </nav>
+      <Navbar user={user} onLogout={onLogout} />
       <div className='main'>
         <h3 className='heading'>Your One Destination For Entertainment</h3>
       </div>

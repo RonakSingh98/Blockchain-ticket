@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './orders.css';
 import { Navigate } from 'react-router-dom';
-
-const MyOrders = ({user}) => {
+import Navbar from './Navbar';
+const MyOrders = ({user,onLogout}) => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
@@ -33,6 +33,7 @@ const MyOrders = ({user}) => {
 
   return (
     <>
+    <Navbar user={user} onLogout={onLogout} />
     {!user && <Navigate to={"/"}></Navigate>}
     <div>
       <h2 className="headi">My Orders</h2>
