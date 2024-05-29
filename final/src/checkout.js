@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './checkout.css'
 import { Navigate, useSearchParams } from 'react-router-dom';
-const Checkout = ({user}) => {
+import Navbar from './Navbar';
+const Checkout = ({user,onLogout}) => {
   // Function to handle form submission
   const [searchParams] = useSearchParams();
   let ticketId = searchParams.get('ticketId');
@@ -33,6 +34,7 @@ const Checkout = ({user}) => {
 
   return (
     <>
+    <Navbar user={user} onLogout={onLogout} />
     {ticketPurchase && <Navigate to={"/orders"}></Navigate>}
     {!user && <Navigate to={"/"}></Navigate>}
     {!ticketId && <Navigate to={"/"}></Navigate>}
